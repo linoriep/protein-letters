@@ -1,0 +1,5 @@
+.job-status .search-scope{font-size:.88rem;margin:8px 0 0;color:#66716b}
+.result-card .provenance-label{overflow-wrap:anywhere;font-size:.75rem;color:#727c75;margin-top:8px}
+.result-card .card-image img{object-fit:contain;background:white}
+.interpretation-note{max-width:86ch}
+@media(max-width:540px){.result-actions{flex-wrap:wrap}.site-nav{gap:12px}.site-nav a{white-space:nowrap}}

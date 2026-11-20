@@ -1,0 +1,118 @@
+{
+  "version": 1,
+  "source_checkpoint_sha256": "0a8003e545ccdeabb03d073eee00e2c78a7f5b73a3f74a0373b01dd00ce3a142",
+  "tensors": [
+    {
+      "shape": [
+        3,
+        3,
+        1,
+        24
+      ],
+      "offset": 0,
+      "length": 216
+    },
+    {
+      "shape": [
+        24
+      ],
+      "offset": 864,
+      "length": 24
+    },
+    {
+      "shape": [
+        3,
+        3,
+        24,
+        48
+      ],
+      "offset": 960,
+      "length": 10368
+    },
+    {
+      "shape": [
+        48
+      ],
+      "offset": 42432,
+      "length": 48
+    },
+    {
+      "shape": [
+        3,
+        3,
+        48,
+        64
+      ],
+      "offset": 42624,
+      "length": 27648
+    },
+    {
+      "shape": [
+        64
+      ],
+      "offset": 153216,
+      "length": 64
+    },
+    {
+      "shape": [
+        2304,
+        128
+      ],
+      "offset": 153472,
+      "length": 294912
+    },
+    {
+      "shape": [
+        128
+      ],
+      "offset": 1333120,
+      "length": 128
+    },
+    {
+      "shape": [
+        128,
+        27
+      ],
+      "offset": 1333632,
+      "length": 3456
+    },
+    {
+      "shape": [
+        27
+      ],
+      "offset": 1347456,
+      "length": 27
+    }
+  ],
+  "class_order": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+    "none"
+  ],
+  "crop_size": 48,
+  "weights_sha256": "d0e56e535e1a7acc0cdb0d06c413d546822bc6b67c47470b93317b001bf03bac"
+}

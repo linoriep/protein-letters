@@ -4,38 +4,50 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f4f5f0">
-  <meta name="description" content="Write words with shapes made from real protein structures.">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="description" content="Find letter-shaped views of real protein structures, write words and draw molecules.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' blob: data:; connect-src 'self' https://files.rcsb.org; worker-src 'self' blob:; child-src 'self' blob:; object-src 'none'; base-uri 'none'; form-action 'none'">
   <title>Protein Letters</title>
   <link rel="stylesheet" href="./style.css">
-  <script src="./word-builder.js" defer></script>
+  <link rel="stylesheet" href="./search.css">
+  <script src="./scan-runtime.js" defer></script>
+  <script src="./search.js" defer></script>
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="./" aria-label="Protein Letters home"><span class="brand-mark" aria-hidden="true">P<span>↗</span></span><span>Protein Letters</span></a>
-  </header>
+  <header class="site-header"><a class="brand" href="./" aria-label="Protein Letters home"><span class="brand-mark" aria-hidden="true">P<span>↗</span></span><span>Protein Letters</span></a><nav class="site-nav" aria-label="Main"><a href="./" aria-current="page">Protein letters</a><a href="./studio.html">Molecules</a></nav></header>
   <main>
-    <section class="hero compact-hero">
-      <div><h1>Letters from proteins.</h1></div>
-      <figure class="example-card"><img src="./assets/337ec5baf33f3a49f819fecf96372ffb56d2733fbfc5d37c6698be86d07115f8.png" alt="Protein 3IFZ viewed in the shape of an A"><figcaption><strong>3IFZ → A</strong></figcaption></figure>
-    </section>
-    <section class="workspace" aria-label="Write a word">
-      <div class="input-panel">
-        <form id="word-form">
-          <label for="word-input">Word or phrase<input id="word-input" class="word-input" type="text" value="HELLO" placeholder="HELLO" maxlength="60" autocomplete="off" spellcheck="false"></label>
-          <div class="form-footer"><span class="muted">Letters A–Z and spaces.</span><button class="primary-button" type="submit">Build the word <span aria-hidden="true">↗</span></button></div>
-        </form>
-      </div>
+    <section class="hero compact-hero"><div><h1>Letters from proteins.</h1></div><figure class="example-card"><img src="./assets/337ec5baf33f3a49f819fecf96372ffb56d2733fbfc5d37c6698be86d07115f8.png" alt="Protein 3IFZ viewed in the shape of an A"><figcaption><strong>3IFZ → A</strong></figcaption></figure></section>
+    <section class="workspace" aria-label="Protein search tools">
+      <nav class="mode-tabs" aria-label="Choose a search mode" role="tablist">
+        <button id="tab-single" class="mode-tab active" role="tab" aria-selected="true" aria-controls="panel-single" data-mode="single">One protein</button>
+        <button id="tab-list" class="mode-tab" role="tab" aria-selected="false" aria-controls="panel-list" data-mode="list" tabindex="-1">Protein list</button>
+        <button id="tab-word" class="mode-tab" role="tab" aria-selected="false" aria-controls="panel-word" data-mode="word" tabindex="-1">Write a word</button>
+      </nav>
+      <section id="panel-single" class="input-panel" role="tabpanel" aria-labelledby="tab-single">
+        
+        <form id="single-form"><div class="single-entry"><label for="single-id">PDB ID<input id="single-id" type="text" placeholder="e.g. 3IFZ" maxlength="4" autocomplete="off" spellcheck="false"></label><span class="or">or</span><label class="file-field" for="single-file">Structure file<input id="single-file" type="file" accept=".pdb,.cif,.mmcif"><span class="file-help">PDB or mmCIF · one file, up to 30 MiB</span></label></div><div class="form-footer"><span id="single-file-note" class="muted">One ID or file. Files stay in your browser.</span><button class="primary-button" type="submit">Find letters <span aria-hidden="true">↗</span></button></div></form>
+      </section>
+      <section id="panel-list" class="input-panel" role="tabpanel" aria-labelledby="tab-list" hidden>
+        
+        <form id="list-form"><div class="list-entry"><label for="list-ids">PDB IDs<textarea id="list-ids" rows="4" placeholder="3IFZ, 2VWE, 1BNA" spellcheck="false"></textarea><span class="file-help">Separate IDs with spaces, commas or new lines.</span></label><label class="file-field" for="list-files">Structure files<input id="list-files" type="file" accept=".pdb,.cif,.mmcif" multiple><span class="file-help">PDB or mmCIF · up to 30 MiB per file</span></label></div><div class="form-footer"><span id="list-file-note" class="muted">Up to 1,000 entries · 80 MiB total.</span><button class="primary-button" type="submit">Find letters <span aria-hidden="true">↗</span></button></div></form>
+      </section>
+      <section id="panel-word" class="input-panel" role="tabpanel" aria-labelledby="tab-word" hidden>
+        <div class="panel-copy"><p>Protein artwork. Choose a different shape for any letter.</p></div>
+        <form id="word-form"><label for="word-input">Word or phrase<input id="word-input" class="word-input" type="text" value="HELLO" placeholder="HELLO" maxlength="60" autocomplete="off" spellcheck="false"></label><div class="form-footer"><span class="muted">Letters A–Z and spaces.</span><button class="primary-button" type="submit">Build the word <span aria-hidden="true">↗</span></button></div></form>
+      </section>
     </section>
     <div id="notice" class="notice" role="status" hidden></div>
-    <section id="word-results" class="results-section" aria-live="polite" hidden>
-      <div class="section-heading"><div><h2 id="word-heading">The word</h2><p id="word-message" class="muted"></p></div></div>
-      <div id="word-board" class="word-board"></div><p id="word-missing" class="word-missing" hidden></p>
+    <section id="job-status" class="job-status" aria-live="polite" hidden><div><span class="status-dot"></span><strong id="job-label">Preparing your search</strong><span id="job-message"></span></div><progress id="job-progress" max="1"></progress><p id="job-count" class="muted"></p><button id="retry-status" class="secondary-button" type="button" hidden>Retry status</button></section>
+    <section id="scan-results" class="results-section" hidden>
+      <div class="section-heading"><div><h2>Results <span id="result-total" class="count-pill"></span></h2><p id="result-meta" class="muted"></p></div><div class="result-actions"><label>Show<select id="view-filter"><option value="best">Best view per protein</option><option value="all">All returned letter views</option></select></label><label>Letter<select id="letter-filter"><option value="">All letters</option></select></label></div></div>
+      <div id="scan-empty" class="empty-state" hidden><span class="empty-icon" aria-hidden="true">∅</span><h3>No letter views found</h3><p>Check the structure messages below.</p></div>
+      <div id="result-grid" class="result-grid"></div>
+      <div id="result-pager" class="pager" hidden><button id="page-prev" class="secondary-button" type="button">← Previous</button><span id="page-count"></span><button id="page-next" class="secondary-button" type="button">Next →</button></div>
+      <details id="error-section" class="error-details" hidden><summary id="error-heading">Structure messages</summary><ul id="error-list"></ul></details>
+      <p class="interpretation-note">Matches depend on the viewing angle; some structures have no convincing letter. Scores rank visual resemblance and are not probabilities. Saved public structures load quickly; new structures are scanned in your browser. Your uploaded files are not sent to a server.</p>
     </section>
-    <dialog id="letter-picker" class="letter-picker" aria-labelledby="letter-picker-title" aria-describedby="letter-picker-hint">
-      <div class="picker-heading"><div><h2 id="letter-picker-title">Choose a letter</h2><p id="letter-picker-hint">Select a shape for this position.</p></div><button id="close-letter-picker" class="picker-close" type="button" aria-label="Close letter choices">×</button></div>
-      <div id="letter-picker-options" class="letter-picker-options"></div>
-    </dialog>
+    <section id="word-results" class="results-section" aria-live="polite" hidden><div class="section-heading"><div><h2 id="word-heading">The word</h2><p id="word-message" class="muted"></p></div></div><div id="word-board" class="word-board"></div><p id="word-missing" class="word-missing" hidden></p></section>
+
+    <dialog id="letter-picker" class="letter-picker" aria-labelledby="letter-picker-title" aria-describedby="letter-picker-hint"><div class="picker-heading"><div><h2 id="letter-picker-title">Choose a letter</h2><p id="letter-picker-hint">Select a shape for this position.</p></div><button id="close-letter-picker" class="picker-close" type="button" aria-label="Close letter choices">×</button></div><div id="letter-picker-options" class="letter-picker-options"></div></dialog>
   </main>
   <footer><span>Protein Letters</span><a href="https://www.rcsb.org/">Protein structures from RCSB PDB</a></footer>
 </body>

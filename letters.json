@@ -381,14 +381,24 @@
     ],
     "L": [
       {
+        "id": "3f2a87debf5934c38146afa1917c11fefc5000c8fdb7f58547f1b110d085c1ca",
+        "letter": "L",
+        "kind": "protein",
+        "image_url": "assets/3f2a87debf5934c38146afa1917c11fefc5000c8fdb7f58547f1b110d085c1ca.png",
+        "is_default": true,
+        "pdb_id": "4OX0",
+        "unit": "chain_A",
+        "label": "Default"
+      },
+      {
         "id": "86d0e626668c4a197d05c6147e96d23736f90a5ea294da6bde17517c40154bb8",
         "letter": "L",
         "kind": "protein",
         "image_url": "assets/86d0e626668c4a197d05c6147e96d23736f90a5ea294da6bde17517c40154bb8.png",
-        "is_default": true,
+        "is_default": false,
         "pdb_id": "12ES",
         "unit": "whole",
-        "label": "Default"
+        "label": "12ES · whole"
       },
       {
         "id": "258ce0b1ba81359758a65cc21d950ea0f3bbf57927937736422e31ed55543013",
@@ -407,16 +417,6 @@
         "pdb_id": "3H7X",
         "unit": "whole",
         "label": "3H7X · whole"
-      },
-      {
-        "id": "3f2a87debf5934c38146afa1917c11fefc5000c8fdb7f58547f1b110d085c1ca",
-        "letter": "L",
-        "kind": "protein",
-        "image_url": "assets/3f2a87debf5934c38146afa1917c11fefc5000c8fdb7f58547f1b110d085c1ca.png",
-        "is_default": false,
-        "pdb_id": "4OX0",
-        "unit": "chain_A",
-        "label": "4OX0 · chain_A"
       },
       {
         "id": "45a134b235aa70ab67b68690aaaf2c4a0a16163cb4a7ba9354842a34eebcf436",
