@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f5f0">
+  <meta name="description" content="Write words with shapes made from real protein structures.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Protein Letters</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./word-builder.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="Protein Letters home"><span class="brand-mark" aria-hidden="true">P<span>↗</span></span><span>Protein Letters</span></a>
+  </header>
+  <main>
+    <section class="hero compact-hero">
+      <div><h1>Letters from proteins.</h1></div>
+      <figure class="example-card"><img src="./assets/337ec5baf33f3a49f819fecf96372ffb56d2733fbfc5d37c6698be86d07115f8.png" alt="Protein 3IFZ viewed in the shape of an A"><figcaption><strong>3IFZ → A</strong></figcaption></figure>
+    </section>
+    <section class="workspace" aria-label="Write a word">
+      <div class="input-panel">
+        <form id="word-form">
+          <label for="word-input">Word or phrase<input id="word-input" class="word-input" type="text" value="HELLO" placeholder="HELLO" maxlength="60" autocomplete="off" spellcheck="false"></label>
+          <div class="form-footer"><span class="muted">Letters A–Z and spaces.</span><button class="primary-button" type="submit">Build the word <span aria-hidden="true">↗</span></button></div>
+        </form>
+      </div>
+    </section>
+    <div id="notice" class="notice" role="status" hidden></div>
+    <section id="word-results" class="results-section" aria-live="polite" hidden>
+      <div class="section-heading"><div><h2 id="word-heading">The word</h2><p id="word-message" class="muted"></p></div></div>
+      <div id="word-board" class="word-board"></div><p id="word-missing" class="word-missing" hidden></p>
+    </section>
+    <dialog id="letter-picker" class="letter-picker" aria-labelledby="letter-picker-title" aria-describedby="letter-picker-hint">
+      <div class="picker-heading"><div><h2 id="letter-picker-title">Choose a letter</h2><p id="letter-picker-hint">Select a shape for this position.</p></div><button id="close-letter-picker" class="picker-close" type="button" aria-label="Close letter choices">×</button></div>
+      <div id="letter-picker-options" class="letter-picker-options"></div>
+    </dialog>
+  </main>
+  <footer><span>Protein Letters</span><a href="https://www.rcsb.org/">Protein structures from RCSB PDB</a></footer>
+</body>
+</html>

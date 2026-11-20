@@ -1,0 +1,883 @@
+{
+  "version": 1,
+  "letters": {
+    "A": [
+      {
+        "id": "337ec5baf33f3a49f819fecf96372ffb56d2733fbfc5d37c6698be86d07115f8",
+        "letter": "A",
+        "kind": "protein",
+        "image_url": "assets/337ec5baf33f3a49f819fecf96372ffb56d2733fbfc5d37c6698be86d07115f8.png",
+        "is_default": true,
+        "pdb_id": "3IFZ",
+        "unit": "whole",
+        "label": "Default"
+      },
+      {
+        "id": "0f0130a56acc3a3cbfcd0180ef605725f63a94f0560b9bae70fc51f7d3db8dcf",
+        "letter": "A",
+        "kind": "assembled",
+        "image_url": "assets/0f0130a56acc3a3cbfcd0180ef605725f63a94f0560b9bae70fc51f7d3db8dcf.png",
+        "is_default": false,
+        "label": "Simple"
+      },
+      {
+        "id": "a051fa57f82f1603b9880b6d5a19a5ae245920265af2e31992e9db4dd2bd0349",
+        "letter": "A",
+        "kind": "assembled",
+        "image_url": "assets/a051fa57f82f1603b9880b6d5a19a5ae245920265af2e31992e9db4dd2bd0349.png",
+        "is_default": false,
+        "label": "Compact"
+      }
+    ],
+    "B": [
+      {
+        "id": "2853f895b5266d1d7da47221cbc35a4fbced4c88fb1058152c3a6be0a26fbdd9",
+        "letter": "B",
+        "kind": "assembled",
+        "image_url": "assets/2853f895b5266d1d7da47221cbc35a4fbced4c88fb1058152c3a6be0a26fbdd9.png",
+        "is_default": true,
+        "label": "Simple"
+      },
+      {
+        "id": "f6c61bc1f47f89452c9e5c7937657ba1c29e1029d75c1202d5efbcf431d6e6a3",
+        "letter": "B",
+        "kind": "assembled",
+        "image_url": "assets/f6c61bc1f47f89452c9e5c7937657ba1c29e1029d75c1202d5efbcf431d6e6a3.png",
+        "is_default": false,
+        "label": "Compact"
+      }
+    ],
+    "C": [
+      {
+        "id": "f9c5e6a3bcf5b956e7e7a808be75a4798d14dbdcf6a24d41862a95b8c3d5984b",
+        "letter": "C",
+        "kind": "protein",
+        "image_url": "assets/f9c5e6a3bcf5b956e7e7a808be75a4798d14dbdcf6a24d41862a95b8c3d5984b.png",
+        "is_default": true,
+        "pdb_id": "1B3U",
+        "unit": "chain_A",
+        "label": "Default"
+      },
+      {
+        "id": "1c2e816609c4c83a96d83581aa3af5b0cd5f7b2c30c349ff9b0a5692213769b8",
+        "letter": "C",
+        "kind": "assembled",
+        "image_url": "assets/1c2e816609c4c83a96d83581aa3af5b0cd5f7b2c30c349ff9b0a5692213769b8.png",
+        "is_default": false,
+        "label": "Simple"
+      },
+      {
+        "id": "2a8c8c1d16f8989d16195c4829ee31aeeb3ba9316a8f789f0015bee31d8e9b5c",
+        "letter": "C",
+        "kind": "protein",
+        "image_url": "assets/2a8c8c1d16f8989d16195c4829ee31aeeb3ba9316a8f789f0015bee31d8e9b5c.png",
+        "is_default": false,
+        "pdb_id": "1B3U",
+        "unit": "chain_B",
+        "label": "1B3U · chain_B"
+      },
+      {
+        "id": "b154b8b9860d0652a187e3bca4bf6b5edf2aaf7a86bf22c57d0c345e76aeff09",
+        "letter": "C",
+        "kind": "protein",
+        "image_url": "assets/b154b8b9860d0652a187e3bca4bf6b5edf2aaf7a86bf22c57d0c345e76aeff09.png",
+        "is_default": false,
+        "pdb_id": "2BNH",
+        "unit": "chain_A",
+        "label": "2BNH · chain_A"
+      },
+      {
+        "id": "e42ab63fcc1d1d3c45536f3598aee2cf2f3be139f20952dd06ae5646bc5db5f7",
+        "letter": "C",
+        "kind": "assembled",
+        "image_url": "assets/e42ab63fcc1d1d3c45536f3598aee2cf2f3be139f20952dd06ae5646bc5db5f7.png",
+        "is_default": false,
+        "label": "Compact"
+      }
+    ],
+    "D": [
+      {
+        "id": "d7d31d1e8dbcd0c0602f707eaf388d1160f786ec6fbc0176fa70f46d72c61787",
+        "letter": "D",
+        "kind": "assembled",
+        "image_url": "assets/d7d31d1e8dbcd0c0602f707eaf388d1160f786ec6fbc0176fa70f46d72c61787.png",
+        "is_default": true,
+        "label": "Simple"
+      },
+      {
+        "id": "ab5a2429e2441c48d94b993004eeab92ed2b99837d4a0b743185599e80f36d20",
+        "letter": "D",
+        "kind": "assembled",
+        "image_url": "assets/ab5a2429e2441c48d94b993004eeab92ed2b99837d4a0b743185599e80f36d20.png",
+        "is_default": false,
+        "label": "Compact"
+      }
+    ],
+    "E": [
+      {
+        "id": "46eef2aa5c93fb6a9a1d8db60a2d191ed01bd523553726a25f8c1175b5aeabc5",
+        "letter": "E",
+        "kind": "protein",
+        "image_url": "assets/46eef2aa5c93fb6a9a1d8db60a2d191ed01bd523553726a25f8c1175b5aeabc5.png",
+        "is_default": true,
+        "pdb_id": "4CJ9",
+        "unit": "chain_A",
+        "label": "Default"
+      },
+      {
+        "id": "1f94bce695a67058298236801a90dbf4b9a1a478eeae8b8597c58fad7786215c",
+        "letter": "E",
+        "kind": "assembled",
+        "image_url": "assets/1f94bce695a67058298236801a90dbf4b9a1a478eeae8b8597c58fad7786215c.png",
+        "is_default": false,
+        "label": "Simple"
+      },
+      {
+        "id": "686c3f516348aba13e0fda782f50b3271faf1694dd964b59b696aa50cc7238cd",
+        "letter": "E",
+        "kind": "protein",
+        "image_url": "assets/686c3f516348aba13e0fda782f50b3271faf1694dd964b59b696aa50cc7238cd.png",
+        "is_default": false,
+        "pdb_id": "4CJ9",
+        "unit": "chain_B",
+        "label": "4CJ9 · chain_B"
+      },
+      {
+        "id": "4e072a432195aba53880eb9a94cd56406b5520b70c0c73b54dd4bd769d695ed4",
+        "letter": "E",
+        "kind": "assembled",
+        "image_url": "assets/4e072a432195aba53880eb9a94cd56406b5520b70c0c73b54dd4bd769d695ed4.png",
+        "is_default": false,
+        "label": "Compact"
+      }
+    ],
+    "F": [
+      {
+        "id": "076961b6b2e889d3f86c68a5f9bf8bef54c34c92a2a22c0118d28ea2543e5bf0",
+        "letter": "F",
+        "kind": "protein",
+        "image_url": "assets/076961b6b2e889d3f86c68a5f9bf8bef54c34c92a2a22c0118d28ea2543e5bf0.png",
+        "is_default": true,
+        "pdb_id": "10BR",
+        "unit": "whole",
+        "label": "Default"
+      },
+      {
+        "id": "aceb974fff8293ec7b7e2ab588a64c9f8e5f00e9d34236ae047a4b7b87dfa1f9",
+        "letter": "F",
+        "kind": "assembled",
+        "image_url": "assets/aceb974fff8293ec7b7e2ab588a64c9f8e5f00e9d34236ae047a4b7b87dfa1f9.png",
+        "is_default": false,
+        "label": "Simple"
+      },
+      {
+        "id": "fd81c9d431bc9c472e71c49951f4ab8addb4c5faa2ee732e95b2ba7cda059993",
+        "letter": "F",
+        "kind": "assembled",
+        "image_url": "assets/fd81c9d431bc9c472e71c49951f4ab8addb4c5faa2ee732e95b2ba7cda059993.png",
+        "is_default": false,
+        "label": "Compact"
+      }
+    ],
+    "G": [
+      {
+        "id": "b3c5dc054b6685044ccddeab51f297b657a8f075adc572e4944e3f529bed7b89",
+        "letter": "G",
+        "kind": "protein",
+        "image_url": "assets/b3c5dc054b6685044ccddeab51f297b657a8f075adc572e4944e3f529bed7b89.png",
+        "is_default": true,
+        "pdb_id": "4U48",
+        "unit": "chain_A",
+        "label": "Default"
+      },
+      {
+        "id": "62e4e5c2f41ef8b90f713b81d59dddebca8e3fd51d8c5906a65bb15cd5ebcec0",
+        "letter": "G",
+        "kind": "assembled",
+        "image_url": "assets/62e4e5c2f41ef8b90f713b81d59dddebca8e3fd51d8c5906a65bb15cd5ebcec0.png",
+        "is_default": false,
+        "label": "Simple"
+      },
+      {
+        "id": "f8fb3cdd9bebb6e52fff4eec326c5e52bb4c9705cfe6a9bd734483d49fa2e196",
+        "letter": "G",
+        "kind": "protein",
+        "image_url": "assets/f8fb3cdd9bebb6e52fff4eec326c5e52bb4c9705cfe6a9bd734483d49fa2e196.png",
+        "is_default": false,
+        "pdb_id": "10JI",
+        "unit": "whole",
+        "label": "10JI · whole"
+      },
+      {
+        "id": "62b0d54ed44371a2e5bea716555ca59bd90f83032b34c2013d7c163879fc2266",
+        "letter": "G",
+        "kind": "assembled",
+        "image_url": "assets/62b0d54ed44371a2e5bea716555ca59bd90f83032b34c2013d7c163879fc2266.png",
+        "is_default": false,
+        "label": "Compact"
+      }
+    ],
+    "H": [
+      {
+        "id": "ae271f26db863b82e498d9ecd7bcb96c839997dfe4787c3c46efbf22d57a2bf6",
+        "letter": "H",
+        "kind": "protein",
+        "image_url": "assets/ae271f26db863b82e498d9ecd7bcb96c839997dfe4787c3c46efbf22d57a2bf6.png",
+        "is_default": true,
+        "pdb_id": "1XU9",
+        "unit": "whole",
+        "label": "Default"
+      },
+      {
+        "id": "7d779ad32e9f54da0de59540c9877ecfa5308fb2113325315df0565839ae4430",
+        "letter": "H",
+        "kind": "assembled",
+        "image_url": "assets/7d779ad32e9f54da0de59540c9877ecfa5308fb2113325315df0565839ae4430.png",
+        "is_default": false,
+        "label": "Simple"
+      },
+      {
+        "id": "16153e4fe9b5108db580eaec4c9d3310cc93cecf2b762bcbb95503a8cc33a4e0",
+        "letter": "H",
+        "kind": "protein",
+        "image_url": "assets/16153e4fe9b5108db580eaec4c9d3310cc93cecf2b762bcbb95503a8cc33a4e0.png",
+        "is_default": false,
+        "pdb_id": "1XU9",
+        "unit": "whole",
+        "label": "1XU9 · whole"
+      },
+      {
+        "id": "a301e7e4464be5a6bbfbefadf0faa405f10593bed95cf0d4999222566f60e201",
+        "letter": "H",
+        "kind": "assembled",
+        "image_url": "assets/a301e7e4464be5a6bbfbefadf0faa405f10593bed95cf0d4999222566f60e201.png",
+        "is_default": false,
+        "label": "Compact"
+      }
+    ],
+    "I": [
+      {
+        "id": "e2142d25cf90d647a3ebf4d5429a91603e50bd847b41fa7c02173f96b65725ca",
+        "letter": "I",
+        "kind": "protein",
+        "image_url": "assets/e2142d25cf90d647a3ebf4d5429a91603e50bd847b41fa7c02173f96b65725ca.png",
+        "is_default": true,
+        "pdb_id": "11IY",
+        "unit": "whole",
+        "label": "Default"
+      },
+      {
+        "id": "84c768b34912e85887c65aa7adeeed29a7b58549fb92c4de3e5afe4d825bf075",
+        "letter": "I",
+        "kind": "assembled",
+        "image_url": "assets/84c768b34912e85887c65aa7adeeed29a7b58549fb92c4de3e5afe4d825bf075.png",
+        "is_default": false,
+        "label": "Simple"
+      },
+      {
+        "id": "5e09162e3acfe3b8f82b6b039156c8653c2f0d73f2428ae6ae195aaa906603bf",
+        "letter": "I",
+        "kind": "protein",
+        "image_url": "assets/5e09162e3acfe3b8f82b6b039156c8653c2f0d73f2428ae6ae195aaa906603bf.png",
+        "is_default": false,
+        "pdb_id": "2WCD",
+        "unit": "chain_G",
+        "label": "2WCD · chain_G"
+      },
+      {
+        "id": "3748a06a0425e6c774d6a4658409b0ea16016dfa92e086bc9fe1c98feb8b33ef",
+        "letter": "I",
+        "kind": "protein",
+        "image_url": "assets/3748a06a0425e6c774d6a4658409b0ea16016dfa92e086bc9fe1c98feb8b33ef.png",
+        "is_default": false,
+        "pdb_id": "12AQ",
+        "unit": "chain_J",
+        "label": "12AQ · chain_J"
+      },
+      {
+        "id": "659d02bf51e116bf9e236dda7715918a928abd01ffc6fa87237f422ab1a43f77",
+        "letter": "I",
+        "kind": "assembled",
+        "image_url": "assets/659d02bf51e116bf9e236dda7715918a928abd01ffc6fa87237f422ab1a43f77.png",
+        "is_default": false,
+        "label": "Compact"
+      }
+    ],
+    "J": [
+      {
+        "id": "c4069a964d9b9706ebc6c941d3fc938c4f50f7cc5760b355d69e6daa00235d2f",
+        "letter": "J",
+        "kind": "protein",
+        "image_url": "assets/c4069a964d9b9706ebc6c941d3fc938c4f50f7cc5760b355d69e6daa00235d2f.png",
+        "is_default": true,
+        "pdb_id": "12LP",
+        "unit": "whole",
+        "label": "Default"
+      },
+      {
+        "id": "e6acc2c5a9893568ed15a6a8a05060d1a96d2891209f3ef8e45f78e2b031c9d6",
+        "letter": "J",
+        "kind": "assembled",
+        "image_url": "assets/e6acc2c5a9893568ed15a6a8a05060d1a96d2891209f3ef8e45f78e2b031c9d6.png",
+        "is_default": false,
+        "label": "Simple"
+      },
+      {
+        "id": "158b7b25507fa2770bef8dc1b001a2daf01a95304abdcee187bf7ec0eb71859c",
+        "letter": "J",
+        "kind": "protein",
+        "image_url": "assets/158b7b25507fa2770bef8dc1b001a2daf01a95304abdcee187bf7ec0eb71859c.png",
+        "is_default": false,
+        "pdb_id": "2WCD",
+        "unit": "chain_E",
+        "label": "2WCD · chain_E"
+      },
+      {
+        "id": "573fb4e281c3447fed85567a21bc239c179541a313adce0f8a25ee60984e75d9",
+        "letter": "J",
+        "kind": "protein",
+        "image_url": "assets/573fb4e281c3447fed85567a21bc239c179541a313adce0f8a25ee60984e75d9.png",
+        "is_default": false,
+        "pdb_id": "3H7X",
+        "unit": "chain_A",
+        "label": "3H7X · chain_A"
+      },
+      {
+        "id": "01f54098aa33877884d01d3bb43e73cf355042e17f25509495885a1c80d52700",
+        "letter": "J",
+        "kind": "assembled",
+        "image_url": "assets/01f54098aa33877884d01d3bb43e73cf355042e17f25509495885a1c80d52700.png",
+        "is_default": false,
+        "label": "Compact"
+      }
+    ],
+    "K": [
+      {
+        "id": "f7915243212d2fbf8750d8e930f2b3dd9335808de3f79bb65301843ea3795aee",
+        "letter": "K",
+        "kind": "assembled",
+        "image_url": "assets/f7915243212d2fbf8750d8e930f2b3dd9335808de3f79bb65301843ea3795aee.png",
+        "is_default": true,
+        "label": "Simple"
+      },
+      {
+        "id": "425da343795702bd3b9a9fc46259d732d50dd0bca9fedde7e510d87328381e27",
+        "letter": "K",
+        "kind": "protein",
+        "image_url": "assets/425da343795702bd3b9a9fc46259d732d50dd0bca9fedde7e510d87328381e27.png",
+        "is_default": false,
+        "pdb_id": "4OX0",
+        "unit": "whole",
+        "label": "4OX0 · whole"
+      },
+      {
+        "id": "047615f8318e94bb5c34464d6fd3264e3d3911d84a7c5b501acb71c4f85157d9",
+        "letter": "K",
+        "kind": "assembled",
+        "image_url": "assets/047615f8318e94bb5c34464d6fd3264e3d3911d84a7c5b501acb71c4f85157d9.png",
+        "is_default": false,
+        "label": "Compact"
+      }
+    ],
+    "L": [
+      {
+        "id": "86d0e626668c4a197d05c6147e96d23736f90a5ea294da6bde17517c40154bb8",
+        "letter": "L",
+        "kind": "protein",
+        "image_url": "assets/86d0e626668c4a197d05c6147e96d23736f90a5ea294da6bde17517c40154bb8.png",
+        "is_default": true,
+        "pdb_id": "12ES",
+        "unit": "whole",
+        "label": "Default"
+      },
+      {
+        "id": "258ce0b1ba81359758a65cc21d950ea0f3bbf57927937736422e31ed55543013",
+        "letter": "L",
+        "kind": "assembled",
+        "image_url": "assets/258ce0b1ba81359758a65cc21d950ea0f3bbf57927937736422e31ed55543013.png",
+        "is_default": false,
+        "label": "Simple"
+      },
+      {
+        "id": "ad5b1af17b76c18ccd9bc7800610e17c6273b6ca490a2cf2afc41e57a6cdba5d",
+        "letter": "L",
+        "kind": "protein",
+        "image_url": "assets/ad5b1af17b76c18ccd9bc7800610e17c6273b6ca490a2cf2afc41e57a6cdba5d.png",
+        "is_default": false,
+        "pdb_id": "3H7X",
+        "unit": "whole",
+        "label": "3H7X · whole"
+      },
+      {
+        "id": "3f2a87debf5934c38146afa1917c11fefc5000c8fdb7f58547f1b110d085c1ca",
+        "letter": "L",
+        "kind": "protein",
+        "image_url": "assets/3f2a87debf5934c38146afa1917c11fefc5000c8fdb7f58547f1b110d085c1ca.png",
+        "is_default": false,
+        "pdb_id": "4OX0",
+        "unit": "chain_A",
+        "label": "4OX0 · chain_A"
+      },
+      {
+        "id": "45a134b235aa70ab67b68690aaaf2c4a0a16163cb4a7ba9354842a34eebcf436",
+        "letter": "L",
+        "kind": "assembled",
+        "image_url": "assets/45a134b235aa70ab67b68690aaaf2c4a0a16163cb4a7ba9354842a34eebcf436.png",
+        "is_default": false,
+        "label": "Compact"
+      }
+    ],
+    "M": [
+      {
+        "id": "e3ab1c23c0a3d9e9b4123118392222492e511e76b58c454a0641dc1b64ee1d6a",
+        "letter": "M",
+        "kind": "protein",
+        "image_url": "assets/e3ab1c23c0a3d9e9b4123118392222492e511e76b58c454a0641dc1b64ee1d6a.png",
+        "is_default": true,
+        "pdb_id": "3H90",
+        "unit": "whole",
+        "label": "Default"
+      },
+      {
+        "id": "57f73b494667863ff06e224ea630e46a5cdd0559fe66b8beee433c91226525ca",
+        "letter": "M",
+        "kind": "assembled",
+        "image_url": "assets/57f73b494667863ff06e224ea630e46a5cdd0559fe66b8beee433c91226525ca.png",
+        "is_default": false,
+        "label": "Simple"
+      },
+      {
+        "id": "932d722001cb6b4a539a25fe72a8c0aca43d96ff2f70b6a483f19d0c0c6e3726",
+        "letter": "M",
+        "kind": "assembled",
+        "image_url": "assets/932d722001cb6b4a539a25fe72a8c0aca43d96ff2f70b6a483f19d0c0c6e3726.png",
+        "is_default": false,
+        "label": "Compact"
+      }
+    ],
+    "N": [
+      {
+        "id": "8cc0878a827c4ee8f52416fe3e0dfdd845674d4bdeff2a9deac6db22b901f388",
+        "letter": "N",
+        "kind": "protein",
+        "image_url": "assets/8cc0878a827c4ee8f52416fe3e0dfdd845674d4bdeff2a9deac6db22b901f388.png",
+        "is_default": true,
+        "pdb_id": "10PH",
+        "unit": "chain_A",
+        "label": "Default"
+      },
+      {
+        "id": "9ffddfea577d8993196df0eb49ae8894615a82cd3a7ea6fc4b968403e8ac7ae5",
+        "letter": "N",
+        "kind": "assembled",
+        "image_url": "assets/9ffddfea577d8993196df0eb49ae8894615a82cd3a7ea6fc4b968403e8ac7ae5.png",
+        "is_default": false,
+        "label": "Simple"
+      },
+      {
+        "id": "626f9821c6d409d5d16fb643c062e060b9e5023e29ee0298f766e8557219ea96",
+        "letter": "N",
+        "kind": "protein",
+        "image_url": "assets/626f9821c6d409d5d16fb643c062e060b9e5023e29ee0298f766e8557219ea96.png",
+        "is_default": false,
+        "pdb_id": "1Z85",
+        "unit": "whole",
+        "label": "1Z85 · whole"
+      },
+      {
+        "id": "b1d84bc416e586a43b2ded84f5fb0821f4ba7c6d6b062c8b0c125c14e269e28e",
+        "letter": "N",
+        "kind": "assembled",
+        "image_url": "assets/b1d84bc416e586a43b2ded84f5fb0821f4ba7c6d6b062c8b0c125c14e269e28e.png",
+        "is_default": false,
+        "label": "Compact"
+      }
+    ],
+    "O": [
+      {
+        "id": "d6a32335de3173074a789897f4c5903a81c9d2256207516dc56472d41f232a57",
+        "letter": "O",
+        "kind": "protein",
+        "image_url": "assets/d6a32335de3173074a789897f4c5903a81c9d2256207516dc56472d41f232a57.png",
+        "is_default": true,
+        "pdb_id": "13KK",
+        "unit": "whole",
+        "label": "Default"
+      },
+      {
+        "id": "bb4550b74a10df6128477cdfd20f8e62fe8d0c4a2dd379cde88e1ac7ab5baafe",
+        "letter": "O",
+        "kind": "assembled",
+        "image_url": "assets/bb4550b74a10df6128477cdfd20f8e62fe8d0c4a2dd379cde88e1ac7ab5baafe.png",
+        "is_default": false,
+        "label": "Simple"
+      },
+      {
+        "id": "4a65d2d6f351898e3952d45d1c2d1f4f965f6aba47f3d17d59c24aa2ba90120d",
+        "letter": "O",
+        "kind": "assembled",
+        "image_url": "assets/4a65d2d6f351898e3952d45d1c2d1f4f965f6aba47f3d17d59c24aa2ba90120d.png",
+        "is_default": false,
+        "label": "Compact"
+      }
+    ],
+    "P": [
+      {
+        "id": "bb1dfd2d82d04ef453c434ab35c17b23398282da2555aec5d2e58322c976e8d1",
+        "letter": "P",
+        "kind": "assembled",
+        "image_url": "assets/bb1dfd2d82d04ef453c434ab35c17b23398282da2555aec5d2e58322c976e8d1.png",
+        "is_default": true,
+        "label": "Simple"
+      },
+      {
+        "id": "ab25a631fad14b858ce8ffc821cdf462595b9aaa3284c2948c957ac54dd39086",
+        "letter": "P",
+        "kind": "protein",
+        "image_url": "assets/ab25a631fad14b858ce8ffc821cdf462595b9aaa3284c2948c957ac54dd39086.png",
+        "is_default": false,
+        "pdb_id": "11CW",
+        "unit": "whole",
+        "label": "11CW · whole"
+      },
+      {
+        "id": "5e54612ed383870e66ef173a4abdb21f7f2a66149b38f831d128576c67420795",
+        "letter": "P",
+        "kind": "assembled",
+        "image_url": "assets/5e54612ed383870e66ef173a4abdb21f7f2a66149b38f831d128576c67420795.png",
+        "is_default": false,
+        "label": "Compact"
+      }
+    ],
+    "Q": [
+      {
+        "id": "3c7f0a64d5c40c11c5bbd6fe4a4e13bb8f5f4239ef34522267627b58d375424a",
+        "letter": "Q",
+        "kind": "assembled",
+        "image_url": "assets/3c7f0a64d5c40c11c5bbd6fe4a4e13bb8f5f4239ef34522267627b58d375424a.png",
+        "is_default": true,
+        "label": "Simple"
+      },
+      {
+        "id": "903d94e477b3d9971caef8f5e3d76a9821b28bfdc5ab528a8c19cc4315df3433",
+        "letter": "Q",
+        "kind": "protein",
+        "image_url": "assets/903d94e477b3d9971caef8f5e3d76a9821b28bfdc5ab528a8c19cc4315df3433.png",
+        "is_default": false,
+        "pdb_id": "11RM",
+        "unit": "chain_A",
+        "label": "11RM · chain_A"
+      },
+      {
+        "id": "d5a087eedcb9ed6fe76c331de1dba8d1ad0f882d72326216cb7c2fb31aafd975",
+        "letter": "Q",
+        "kind": "assembled",
+        "image_url": "assets/d5a087eedcb9ed6fe76c331de1dba8d1ad0f882d72326216cb7c2fb31aafd975.png",
+        "is_default": false,
+        "label": "Compact"
+      }
+    ],
+    "R": [
+      {
+        "id": "808ff3aa538061111af60465acee94a57e4380bc708814e909b07be52ff24f22",
+        "letter": "R",
+        "kind": "assembled",
+        "image_url": "assets/808ff3aa538061111af60465acee94a57e4380bc708814e909b07be52ff24f22.png",
+        "is_default": true,
+        "label": "Simple"
+      },
+      {
+        "id": "15eb75f427c137f43947b3c6374223327dd611fd5bf7a8ecf36930f0cb23ab09",
+        "letter": "R",
+        "kind": "protein",
+        "image_url": "assets/15eb75f427c137f43947b3c6374223327dd611fd5bf7a8ecf36930f0cb23ab09.png",
+        "is_default": false,
+        "pdb_id": "10HA",
+        "unit": "whole",
+        "label": "10HA · whole"
+      },
+      {
+        "id": "49515c2172a80a71a617bd8c188098b627eeb46a6ce661f194738be9d5e3f1ff",
+        "letter": "R",
+        "kind": "assembled",
+        "image_url": "assets/49515c2172a80a71a617bd8c188098b627eeb46a6ce661f194738be9d5e3f1ff.png",
+        "is_default": false,
+        "label": "Compact"
+      }
+    ],
+    "S": [
+      {
+        "id": "8256dd207f88390338b1d441ee65dd7e5303abe391c111a54dba0805cfba24ab",
+        "letter": "S",
+        "kind": "protein",
+        "image_url": "assets/8256dd207f88390338b1d441ee65dd7e5303abe391c111a54dba0805cfba24ab.png",
+        "is_default": true,
+        "pdb_id": "10SM",
+        "unit": "chain_D",
+        "label": "Default"
+      },
+      {
+        "id": "496b45b017b5bb60946b219be09b0e133c543ab6e95dee009dfc069f6b7e347c",
+        "letter": "S",
+        "kind": "assembled",
+        "image_url": "assets/496b45b017b5bb60946b219be09b0e133c543ab6e95dee009dfc069f6b7e347c.png",
+        "is_default": false,
+        "label": "Simple"
+      },
+      {
+        "id": "e39bd9c9461d5084d784ce7cec14d4d2ccdf0fa3415b4735af73e5d8d4b46ddb",
+        "letter": "S",
+        "kind": "protein",
+        "image_url": "assets/e39bd9c9461d5084d784ce7cec14d4d2ccdf0fa3415b4735af73e5d8d4b46ddb.png",
+        "is_default": false,
+        "pdb_id": "4BTA",
+        "unit": "whole",
+        "label": "4BTA · whole"
+      },
+      {
+        "id": "3648432b86217075a1443781029857fb61a9fc7000c98750616a075d04c55c8e",
+        "letter": "S",
+        "kind": "assembled",
+        "image_url": "assets/3648432b86217075a1443781029857fb61a9fc7000c98750616a075d04c55c8e.png",
+        "is_default": false,
+        "label": "Compact"
+      }
+    ],
+    "T": [
+      {
+        "id": "9443a93661c67d810c6ee338d457e9d19a4f517c775bb66012873fa9fea0e304",
+        "letter": "T",
+        "kind": "assembled",
+        "image_url": "assets/9443a93661c67d810c6ee338d457e9d19a4f517c775bb66012873fa9fea0e304.png",
+        "is_default": true,
+        "label": "Simple"
+      },
+      {
+        "id": "e7edb22c48d3519677356a6f93e0aac9b5d5eb7fa06b1106da13dc4bda5b0110",
+        "letter": "T",
+        "kind": "protein",
+        "image_url": "assets/e7edb22c48d3519677356a6f93e0aac9b5d5eb7fa06b1106da13dc4bda5b0110.png",
+        "is_default": false,
+        "pdb_id": "12UB",
+        "unit": "whole",
+        "label": "12UB · whole"
+      },
+      {
+        "id": "c76299c60155addb60ae8a07bc9492768b893ee457f1e2856484969cac4b3ea1",
+        "letter": "T",
+        "kind": "assembled",
+        "image_url": "assets/c76299c60155addb60ae8a07bc9492768b893ee457f1e2856484969cac4b3ea1.png",
+        "is_default": false,
+        "label": "Compact"
+      }
+    ],
+    "U": [
+      {
+        "id": "de2c0109784ee26bd36ec2fae4deb3b53e65a11cf0d68c70c9fcc62834588a8a",
+        "letter": "U",
+        "kind": "protein",
+        "image_url": "assets/de2c0109784ee26bd36ec2fae4deb3b53e65a11cf0d68c70c9fcc62834588a8a.png",
+        "is_default": true,
+        "pdb_id": "2VWE",
+        "unit": "whole",
+        "label": "Default"
+      },
+      {
+        "id": "27cd946b1154f58f7824dfce461cb1fd18dc4e68370a8ff8ad683b99193182e3",
+        "letter": "U",
+        "kind": "assembled",
+        "image_url": "assets/27cd946b1154f58f7824dfce461cb1fd18dc4e68370a8ff8ad683b99193182e3.png",
+        "is_default": false,
+        "label": "Simple"
+      },
+      {
+        "id": "a7467c4eaa2bee4250e5a385e002359e48c198f0b957ce2def6a56b21312e0a5",
+        "letter": "U",
+        "kind": "protein",
+        "image_url": "assets/a7467c4eaa2bee4250e5a385e002359e48c198f0b957ce2def6a56b21312e0a5.png",
+        "is_default": false,
+        "pdb_id": "10JH",
+        "unit": "chain_A",
+        "label": "10JH · chain_A"
+      },
+      {
+        "id": "12f9edf24f1d445c7faae4655dde55d847093399a14d6204df5bd102be0e6e22",
+        "letter": "U",
+        "kind": "assembled",
+        "image_url": "assets/12f9edf24f1d445c7faae4655dde55d847093399a14d6204df5bd102be0e6e22.png",
+        "is_default": false,
+        "label": "Compact"
+      }
+    ],
+    "V": [
+      {
+        "id": "f4ee8899d5657d091b460b25ebab483579fdd3f67476b174b2e0824cad5924a5",
+        "letter": "V",
+        "kind": "protein",
+        "image_url": "assets/f4ee8899d5657d091b460b25ebab483579fdd3f67476b174b2e0824cad5924a5.png",
+        "is_default": true,
+        "pdb_id": "11MP",
+        "unit": "whole",
+        "label": "Default"
+      },
+      {
+        "id": "b4c2dc9e372e00ac8d5d8c30bda8f6f40bdc7242c8447c51851fa5608a66a1db",
+        "letter": "V",
+        "kind": "assembled",
+        "image_url": "assets/b4c2dc9e372e00ac8d5d8c30bda8f6f40bdc7242c8447c51851fa5608a66a1db.png",
+        "is_default": false,
+        "label": "Simple"
+      },
+      {
+        "id": "6c9f84a844598f25fd06b05c7c7d7e32576bce0822682026c369a238d4c617d4",
+        "letter": "V",
+        "kind": "protein",
+        "image_url": "assets/6c9f84a844598f25fd06b05c7c7d7e32576bce0822682026c369a238d4c617d4.png",
+        "is_default": false,
+        "pdb_id": "3H7X",
+        "unit": "whole",
+        "label": "3H7X · whole"
+      },
+      {
+        "id": "2cc55fcb91887c82b0111eafa35652db99eb3b073be5c56f031245a9757f7cf8",
+        "letter": "V",
+        "kind": "assembled",
+        "image_url": "assets/2cc55fcb91887c82b0111eafa35652db99eb3b073be5c56f031245a9757f7cf8.png",
+        "is_default": false,
+        "label": "Compact"
+      }
+    ],
+    "W": [
+      {
+        "id": "45e7050e55feb8b78d3398479b105ad63b4d71bcf9d9c0c19a093f09fd2ebd05",
+        "letter": "W",
+        "kind": "protein",
+        "image_url": "assets/45e7050e55feb8b78d3398479b105ad63b4d71bcf9d9c0c19a093f09fd2ebd05.png",
+        "is_default": true,
+        "pdb_id": "3H90",
+        "unit": "whole",
+        "label": "Default"
+      },
+      {
+        "id": "05ff3ab400cfa3df54acdfddf82afe37a5f1b07780be568b4bda4bd5caca083a",
+        "letter": "W",
+        "kind": "assembled",
+        "image_url": "assets/05ff3ab400cfa3df54acdfddf82afe37a5f1b07780be568b4bda4bd5caca083a.png",
+        "is_default": false,
+        "label": "Simple"
+      },
+      {
+        "id": "f0d19b1bb52d2e150d52526834e4e021286a459ca8a5ce84d77b78b8e658c588",
+        "letter": "W",
+        "kind": "protein",
+        "image_url": "assets/f0d19b1bb52d2e150d52526834e4e021286a459ca8a5ce84d77b78b8e658c588.png",
+        "is_default": false,
+        "pdb_id": "1B3U",
+        "unit": "whole",
+        "label": "1B3U · whole"
+      },
+      {
+        "id": "3c4b8d9910bf976af71d9e55e1b852bedeb974138892dc01501a1b223cb55bd0",
+        "letter": "W",
+        "kind": "assembled",
+        "image_url": "assets/3c4b8d9910bf976af71d9e55e1b852bedeb974138892dc01501a1b223cb55bd0.png",
+        "is_default": false,
+        "label": "Compact"
+      }
+    ],
+    "X": [
+      {
+        "id": "8714bc815849f678db82e07c5aa0d676182bfd07aceeba21feef892bb839af57",
+        "letter": "X",
+        "kind": "protein",
+        "image_url": "assets/8714bc815849f678db82e07c5aa0d676182bfd07aceeba21feef892bb839af57.png",
+        "is_default": true,
+        "pdb_id": "1W3B",
+        "unit": "whole",
+        "label": "Default"
+      },
+      {
+        "id": "0a8e6837f2836da40bf7cb73558fd0029d09e3b76318cc573bf4cc0d878e2280",
+        "letter": "X",
+        "kind": "assembled",
+        "image_url": "assets/0a8e6837f2836da40bf7cb73558fd0029d09e3b76318cc573bf4cc0d878e2280.png",
+        "is_default": false,
+        "label": "Simple"
+      },
+      {
+        "id": "d46c42fb617fdd82fd4a0c2f7ec5cbb5ad0687e2ce93a4e53c0a5bdcfe4a2ea0",
+        "letter": "X",
+        "kind": "protein",
+        "image_url": "assets/d46c42fb617fdd82fd4a0c2f7ec5cbb5ad0687e2ce93a4e53c0a5bdcfe4a2ea0.png",
+        "is_default": false,
+        "pdb_id": "10MS",
+        "unit": "whole",
+        "label": "10MS · whole"
+      },
+      {
+        "id": "28c490edc039500f7a716713020a02db7b08220f98b4c8cebb273617b53b904e",
+        "letter": "X",
+        "kind": "assembled",
+        "image_url": "assets/28c490edc039500f7a716713020a02db7b08220f98b4c8cebb273617b53b904e.png",
+        "is_default": false,
+        "label": "Compact"
+      }
+    ],
+    "Y": [
+      {
+        "id": "483fae670ed0ed3eea72c1b72e83acbea90fa8f9947c8c4bbfb6604cbc9ff0d8",
+        "letter": "Y",
+        "kind": "protein",
+        "image_url": "assets/483fae670ed0ed3eea72c1b72e83acbea90fa8f9947c8c4bbfb6604cbc9ff0d8.png",
+        "is_default": true,
+        "pdb_id": "12SX",
+        "unit": "whole",
+        "label": "Default"
+      },
+      {
+        "id": "4719dfdef47708a97636f64a1d99107f7d902f5d7b463e72fc332f893908b5f1",
+        "letter": "Y",
+        "kind": "assembled",
+        "image_url": "assets/4719dfdef47708a97636f64a1d99107f7d902f5d7b463e72fc332f893908b5f1.png",
+        "is_default": false,
+        "label": "Simple"
+      },
+      {
+        "id": "87d8b5168fa932e9b8f28f54b9bed6145ee2fb59de1f497c77e45797a839bb22",
+        "letter": "Y",
+        "kind": "protein",
+        "image_url": "assets/87d8b5168fa932e9b8f28f54b9bed6145ee2fb59de1f497c77e45797a839bb22.png",
+        "is_default": false,
+        "pdb_id": "12IZ",
+        "unit": "whole",
+        "label": "12IZ · whole"
+      },
+      {
+        "id": "f1149fd334c45052f211866dfc1772118c68af16d80f153e40768252bab3ed4f",
+        "letter": "Y",
+        "kind": "assembled",
+        "image_url": "assets/f1149fd334c45052f211866dfc1772118c68af16d80f153e40768252bab3ed4f.png",
+        "is_default": false,
+        "label": "Compact"
+      }
+    ],
+    "Z": [
+      {
+        "id": "5f00390869352f4be390f4635301e3b652f6ef682effe8bad009c8ebd719e026",
+        "letter": "Z",
+        "kind": "assembled",
+        "image_url": "assets/5f00390869352f4be390f4635301e3b652f6ef682effe8bad009c8ebd719e026.png",
+        "is_default": true,
+        "label": "Simple"
+      },
+      {
+        "id": "36cf26afa36367d4fc0a2f7af530dcc7f0523ebf5ce0a2bc3c2b02ba49bae7e2",
+        "letter": "Z",
+        "kind": "assembled",
+        "image_url": "assets/36cf26afa36367d4fc0a2f7af530dcc7f0523ebf5ce0a2bc3c2b02ba49bae7e2.png",
+        "is_default": false,
+        "label": "Compact"
+      }
+    ]
+  }
+}
