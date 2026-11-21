@@ -95,7 +95,7 @@ function pushUndo(before = snapshot()) {
 }
 function save() {
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({version:1,...snapshot(),name:$('molecule-name').value,includeName:$('include-name').checked,allowAssembled:$('allow-assembled').checked}));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({version:1,...snapshot(),name:$('molecule-name').value,includeName:$('include-name').checked}));
   } catch (_) {
     if (!storageWarningShown) { storageWarningShown = true; notice('This browser cannot save the sketch between visits. Keep this page open and download the finished artwork.'); }
   }
@@ -361,13 +361,12 @@ $('art-form').addEventListener('submit',async event=>{
     // unchanged molblock, preserving annotations absent from the simple graph.
     if(state.authority.type==='graph'&&!state.checked)applyPrepared(await api('/api/art/prepare',{graph:state.graph}),'graph');
     const name=$('molecule-name').value.trim();
-    const result=await api('/api/art/render',{...renderSource(),name,include_name:$('include-name').checked&&Boolean(name),allow_assembled:$('allow-assembled').checked});
+    const result=await api('/api/art/render',{...renderSource(),name,include_name:$('include-name').checked&&Boolean(name),allow_assembled:true});
     if(result.status==='missing_glyphs'){
       const missing=Array.isArray(result.missing_letters)?[...new Set(result.missing_letters.map(String))]:[];
       invalidateArt('No artwork created. Some letters in the name are unavailable.');
       const warnings=Array.isArray(result.warnings)?result.warnings.map(String):[];
       if(missing.length)warnings.unshift('Name letters unavailable: '+missing.join(', ')+'.');
-      if(!$('allow-assembled').checked)warnings.push('Enable assembled name letters, change the name, or leave the name out.');
       $('art-warnings').replaceChildren(...warnings.map(text=>node('li',text)));$('art-warnings').hidden=!warnings.length;
       notice('Some letters in the name are unavailable'+(missing.length?': '+missing.join(', '):'.')+' No artwork was created.',true);
       return;
@@ -385,7 +384,7 @@ $('art-form').addEventListener('submit',async event=>{
   }catch(error){notice(error.message,true);}finally{setBusy(false);}
 });
 $('art-image').addEventListener('error',()=>{if(!$('art-image').hasAttribute('src'))return;$('art-image').hidden=true;$('art-empty').hidden=false;notice('The artwork preview could not be loaded. Use a download link if available, or try creating it again.',true);});
-for(const id of ['molecule-name','include-name','allow-assembled'])$(id).addEventListener(id==='molecule-name'?'input':'change',()=>{invalidateArt('The artwork options changed. Create it again to apply them.');save();});
+for(const id of ['molecule-name','include-name'])$(id).addEventListener(id==='molecule-name'?'input':'change',()=>{invalidateArt('The artwork options changed. Create it again to apply them.');save();});
 async function loadPalette(){
   try{
     const result=await api('/api/art/palette');if(!Array.isArray(result.letters))throw new Error('The letter set is unavailable.');
@@ -395,7 +394,6 @@ async function loadPalette(){
       card.append(node('strong',row.letter),node('small',row.kind==='assembled'?'Assembled':row.pdb_id||'Protein'));return card;
     });
     $('palette').replaceChildren(...cards);if(!cards.length)$('palette').append(node('span','No letter views are available yet.','field-help'));
-    $('palette-policy').textContent='The standard set is used by default. Enable the option above to build other missing name letters from protein pieces.';
   }catch(error){$('palette').replaceChildren(node('span','The letter set could not be loaded.','field-help'));$('palette-policy').textContent=error.message;}
 }
 function restore(){
@@ -405,7 +403,7 @@ function restore(){
     state.graph=cleanGraph(saved.graph);
     state.authority=saved.authority?.type==='molblock'&&typeof saved.authority.value==='string'&&saved.authority.value.length<1024*1024?{type:'molblock',value:saved.authority.value}:{type:'graph'};
     state.canonical=typeof saved.canonical==='string'?saved.canonical:'';state.formula=typeof saved.formula==='string'?saved.formula:'';state.checked=Boolean(saved.checked);state.smilesDirty=Boolean(saved.smilesDirty);state.hasStereo=Boolean(saved.hasStereo)||(saved.hasStereo===undefined&&/[@/\\]/.test(state.canonical));
-    $('smiles-input').value=typeof saved.smiles==='string'?saved.smiles:'';$('molecule-name').value=typeof saved.name==='string'?saved.name.slice(0,80):'';$('include-name').checked=saved.includeName!==false;$('allow-assembled').checked=saved.allowAssembled===true;
+    $('smiles-input').value=typeof saved.smiles==='string'?saved.smiles:'';$('molecule-name').value=typeof saved.name==='string'?saved.name.slice(0,80):'';$('include-name').checked=saved.includeName!==false;
     if(state.graph.atoms.length)notice(state.hasStereo?'The last molecule has been restored with its original stereochemistry. Editing is unavailable; clear it or load another molecule to continue.':'The last sketch has been restored.');
   }catch(_){notice('The saved sketch could not be restored. Start a new sketch or load a molecule.');}
 }

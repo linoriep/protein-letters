@@ -4,7 +4,7 @@
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f4f5f0">
   <title>Molecule Studio · Protein Letters</title>
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; worker-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'none'">
-  <link rel="stylesheet" href="./studio.css"><script src="./chemistry.js" defer></script><script src="./protein-artwork.js" defer></script><script src="./studio.js" defer></script>
+  <link rel="stylesheet" href="./studio.css"><script src="./chemistry.js" defer></script><script src="./protein-artwork.js" defer></script><script src="./studio.js?v=alphabet" defer></script>
 </head>
 <body>
 <header class="site-header"><a class="brand" href="./" aria-label="Protein Letters home"><span class="brand-mark" aria-hidden="true">P<span>↗</span></span><span>Protein Letters</span></a><nav class="site-nav" aria-label="Main"><a href="./">Protein letters</a><a href="./studio.html" aria-current="page">Molecules</a></nav></header>
@@ -24,7 +24,7 @@
     </section>
     <section class="art-panel" aria-labelledby="art-title">
       <div class="panel-heading"><div><h2 id="art-title">Artwork</h2></div></div>
-      <form id="art-form"><label for="molecule-name">Add a name <span class="optional">optional</span><input id="molecule-name" type="text" maxlength="80" placeholder="e.g. CAFFEINE" autocomplete="off"></label><label class="check-row"><input id="include-name" type="checkbox" checked><span>Show name</span></label><label class="check-row assembled-option"><input id="allow-assembled" type="checkbox"><span>Assemble missing letters<small>Use protein pieces when a selected letter is unavailable.</small></span></label><button class="primary-button" id="render-art" type="submit">Create artwork <span aria-hidden="true">↗</span></button></form>
+      <form id="art-form"><label for="molecule-name">Add a name <span class="optional">optional</span><input id="molecule-name" type="text" maxlength="80" placeholder="e.g. CAFFEINE" autocomplete="off"></label><label class="check-row"><input id="include-name" type="checkbox" checked><span>Show name</span></label><button class="primary-button" id="render-art" type="submit">Create artwork <span aria-hidden="true">↗</span></button></form>
       <div id="art-preview" class="art-preview"><div id="art-empty" class="art-empty"><strong>Your artwork appears here.</strong></div><img id="art-image" alt="Protein artwork of the molecule" hidden></div>
       <div id="art-downloads" class="art-downloads" hidden><a id="download-png" download="protein-molecule.png">PNG ↓</a><a id="download-svg" download="protein-molecule.svg">SVG ↓</a></div><p id="art-caption" class="art-caption" role="status"></p><ul id="art-warnings" class="art-warnings" hidden></ul>
       <details class="palette-panel"><summary>Letter set</summary><p>Selected protein views. Assembled shapes are labeled.</p><div id="palette" class="palette"><span class="field-help">Loading the letter set…</span></div><p id="palette-policy" class="field-help"></p></details>
