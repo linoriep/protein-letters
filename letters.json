@@ -457,22 +457,22 @@
     ],
     "N": [
       {
-        "id": "8cc0878a827c4ee8f52416fe3e0dfdd845674d4bdeff2a9deac6db22b901f388",
-        "letter": "N",
-        "kind": "protein",
-        "image_url": "assets/8cc0878a827c4ee8f52416fe3e0dfdd845674d4bdeff2a9deac6db22b901f388.png",
-        "is_default": true,
-        "pdb_id": "10PH",
-        "unit": "chain_A",
-        "label": "Default"
-      },
-      {
         "id": "9ffddfea577d8993196df0eb49ae8894615a82cd3a7ea6fc4b968403e8ac7ae5",
         "letter": "N",
         "kind": "assembled",
         "image_url": "assets/9ffddfea577d8993196df0eb49ae8894615a82cd3a7ea6fc4b968403e8ac7ae5.png",
-        "is_default": false,
+        "is_default": true,
         "label": "Simple"
+      },
+      {
+        "id": "8cc0878a827c4ee8f52416fe3e0dfdd845674d4bdeff2a9deac6db22b901f388",
+        "letter": "N",
+        "kind": "protein",
+        "image_url": "assets/8cc0878a827c4ee8f52416fe3e0dfdd845674d4bdeff2a9deac6db22b901f388.png",
+        "is_default": false,
+        "pdb_id": "10PH",
+        "unit": "chain_A",
+        "label": "10PH · chain_A"
       },
       {
         "id": "626f9821c6d409d5d16fb643c062e060b9e5023e29ee0298f766e8557219ea96",
