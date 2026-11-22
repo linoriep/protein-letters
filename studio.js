@@ -2,7 +2,6 @@
 const $ = id => document.getElementById(id);
 const SVG_NS = 'http://www.w3.org/2000/svg';
 const STORAGE_KEY = 'protein-letters-public-molecule-studio-v1';
-const ELEMENTS = new Set(['C', 'N', 'O', 'S', 'P', 'F', 'Cl', 'Br', 'I', 'H']);
 const COLORS = {C:'#42513d', N:'#4b73a3', O:'#b26655', S:'#a68c38', P:'#ad8350', F:'#6e9565', Cl:'#6e9565', Br:'#a77953', I:'#89699b', H:'#89947e'};
 const EXAMPLES = {
   caffeine: {smiles:'Cn1c(=O)c2c(ncn2C)n(C)c1=O', name:'CAFFEINE'},
@@ -22,6 +21,10 @@ function svgNode(tag, attrs = {}) {
   const n = document.createElementNS(SVG_NS, tag);
   for (const [key, value] of Object.entries(attrs)) n.setAttribute(key, String(value));
   return n;
+}
+function unsupportedArtworkNotice() {
+  const symbols=[...new Set(state.graph.atoms.map(atom=>atom.element).filter(symbol=>symbol.length>1))].sort();
+  return symbols.length ? 'Protein artwork is unavailable for '+symbols.join(', ')+'.' : '';
 }
 function notice(text, error = false) {
   $('notice').textContent = text;
@@ -325,7 +328,7 @@ async function prepareSmiles(text){
 async function loadSmiles(text,name){
   if(state.busy)return;
   setBusy(true,'Loading the molecule…');
-  try{await prepareSmiles(text);if(name)$('molecule-name').value=name;save();notice(state.hasStereo?'This molecule includes stereochemistry. Its original structure is retained, but this sketcher cannot edit it. Clear it or load another molecule to continue.':'Molecule loaded. Add a name or create the artwork.');}
+  try{await prepareSmiles(text);if(name)$('molecule-name').value=name;save();notice(state.hasStereo?'This molecule includes stereochemistry. Its original structure is retained, but this sketcher cannot edit it. Clear it or load another molecule to continue.':unsupportedArtworkNotice() || 'Molecule loaded. Add a name or create the artwork.');}
   catch(error){notice(error.message,true);}
   finally{setBusy(false);}
 }
@@ -344,7 +347,7 @@ $('check-structure').addEventListener('click',async()=>{
     if(state.smilesDirty&&$('smiles-input').value.trim())await prepareSmiles($('smiles-input').value);
     else if(state.authority.type==='molblock'&&state.checked)notice('This loaded structure is ready for artwork.');
     else{if(!state.graph.atoms.length)throw new Error('Draw a molecule first.');applyPrepared(await api('/api/art/prepare',{graph:state.graph}),'graph');}
-    notice(state.hasStereo?'This molecule includes stereochemistry. Its original structure is kept unchanged; editing and artwork are not supported yet.':`Structure checked${state.formula?' · '+state.formula:''}. Ready to create the artwork.`);
+    notice(state.hasStereo?'This molecule includes stereochemistry. Its original structure is kept unchanged; editing and artwork are not supported yet.':unsupportedArtworkNotice() || `Structure checked${state.formula?' · '+state.formula:''}. Ready to create the artwork.`);
   }catch(error){notice(error.message,true);}finally{setBusy(false);}
 });
 function renderSource(){
@@ -419,7 +422,7 @@ function restore(){
       $('letter-color').value=nameColor;
       $('original-letter-color').hidden=false;
     }
-    if(state.graph.atoms.length)notice(state.hasStereo?'The last molecule has been restored with its original stereochemistry. Editing is unavailable; clear it or load another molecule to continue.':'The last sketch has been restored.');
+    if(state.graph.atoms.length)notice(state.hasStereo?'The last molecule has been restored with its original stereochemistry. Editing is unavailable; clear it or load another molecule to continue.':unsupportedArtworkNotice() || 'The last sketch has been restored.');
   }catch(_){notice('The saved sketch could not be restored. Start a new sketch or load a molecule.');}
 }
 restore();renderSketch();loadPalette();

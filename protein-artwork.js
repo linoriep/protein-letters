@@ -126,14 +126,16 @@
       }
       const name=body.include_name?String(body.name||'').trim().toUpperCase():'';
       if(name.length>120||/[^A-Z -]/.test(name))fail('unsupported_name_characters','Protein names may contain A–Z letters, spaces, and hyphens.');
-      const catalog=await json(), glyphs=new Map(), missing=new Set(),conventional=new Set();
+      const unsupported=[...new Set(atoms.map(a=>a.element).filter(symbol=>symbol.length>1))].sort();
+      if(unsupported.length)fail('unsupported_artwork_elements','Protein artwork is unavailable for '+unsupported.join(', ')+'.');
+      const catalog=await json(), glyphs=new Map(), missing=new Set();
       async function glyph(letter,role) {
         const entries=catalog.letters?.[letter];const option=Array.isArray(entries)?entries.find(o=>o.is_default)||entries[0]:null;
         if(!option || role==='name'&&option.kind==='assembled'&&!body.allow_assembled) {missing.add(letter);return;}
         if(!glyphs.has(letter))glyphs.set(letter,{asset:await asset(option.image_url),kind:option.kind});
       }
       const explicit=(a,i)=>a.element!=='C'||a.charge||a.isotope||!adj[i].length;
-      for(let i=0;i<atoms.length;i++)if(explicit(atoms[i],i)) {const a=atoms[i];if(a.element.length===1)await glyph(a.element,'atom');else conventional.add(a.element);if(a.total_h)await glyph('H','atom');}
+      for(let i=0;i<atoms.length;i++)if(explicit(atoms[i],i)) {const a=atoms[i];await glyph(a.element,'atom');if(a.total_h)await glyph('H','atom');}
       for(const letter of new Set(name.replace(/[ -]/g,'')))await glyph(letter,'name');
       if(missing.size)return {status:'missing_glyphs',missing_letters:[...missing].sort(),warnings:['No artwork was generated. Enable assembled letters for missing name glyphs.']};
       const rod=await asset('assets/rod.png'); if(rod.width>rod.height)fail('invalid_rod','The protein bond rod must be vertical.');
@@ -176,9 +178,9 @@
       }
       for(let i=0;i<atoms.length;i++) {
         const a=atoms[i];if(!explicit(a,i))continue;const [x,y]=coords[i];
-        if(a.element.length>1)canvas.text(a.element,x,y,h*.7,`atom ${i} conventional element`);
-        else canvas.glyph(a.element,glyphs.get(a.element),x,y,h,`atom ${i} ${a.element}`);
-        let labelRight=x+(a.element.length>1?canvas.textWidth(a.element,h*.7):h*glyphs.get(a.element).asset.width/glyphs.get(a.element).asset.height)/2;
+        const glyphAsset=glyphs.get(a.element);
+        canvas.glyph(a.element,glyphAsset,x,y,h,`atom ${i} ${a.element}`);
+        let labelRight=x+h*glyphAsset.asset.width/glyphAsset.asset.height/2;
         if(a.total_h) {
           const neighbors=adj[i].map(([j])=>sub(coords[j],coords[i])).map(v=>mul(v,1/norm(v)));
           const directions=[[1,0],[-1,0],[0,-1],[0,1]];
@@ -196,9 +198,7 @@
       const image=new Image();await new Promise((resolve,reject)=>{image.onload=resolve;image.onerror=()=>reject(new Error('Artwork image could not be decoded.'));image.src=svgURL;});
       const png=document.createElement('canvas');png.width=width;png.height=height;png.getContext('2d').drawImage(image,0,0);
       const pngBlob=await new Promise(resolve=>png.toBlob(resolve,'image/png'));if(!pngBlob)fail('image_export_failed','The PNG could not be created.');
-      const warnings=[];
-      if(conventional.size)warnings.push('Conventional chemical text preserves element case for: '+[...conventional].sort().join(', ')+'.');
-      return {status:'rendered',png_url:URL.createObjectURL(pngBlob),svg_url:svgURL,missing_letters:[],warnings,width,height,
+      return {status:'rendered',png_url:URL.createObjectURL(pngBlob),svg_url:svgURL,missing_letters:[],warnings:[],width,height,
         provenance:{atom_screen_coordinates:coords,placements:canvas.placements,bond_orders:bonds.map(b=>b.order),ring_bond_style:'Outer ring strokes meet chemical vertices; inward secondary whole-protein stroke.',boundary:'Static protein artwork; whole assets, rigid rotation and uniform scaling only.'}};
     } catch(e) {if(svgURL)URL.revokeObjectURL(svgURL);return {status:'error',code:e.code||'artwork_failed',error:e.message||'Artwork could not be created.',missing_letters:[],warnings:[]};}
   }
