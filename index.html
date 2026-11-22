@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="./search.css">
   <script src="./scan-runtime.js" defer></script>
-  <script src="./search.js" defer></script>
+  <script src="./search.js?v=letter-color" defer></script>
 </head>
 <body>
   <header class="site-header"><a class="brand" href="./" aria-label="Protein Letters home"><span class="brand-mark" aria-hidden="true">P<span>↗</span></span><span>Protein Letters</span></a><nav class="site-nav" aria-label="Main"><a href="./" aria-current="page">Protein letters</a><a href="./studio.html">Molecules</a></nav></header>
@@ -45,7 +45,7 @@
       <details id="error-section" class="error-details" hidden><summary id="error-heading">Structure messages</summary><ul id="error-list"></ul></details>
       <p class="interpretation-note">Matches depend on the viewing angle; some structures have no convincing letter. Scores rank visual resemblance and are not probabilities. Saved public structures load quickly; new structures are scanned in your browser. Your uploaded files are not sent to a server.</p>
     </section>
-    <section id="word-results" class="results-section" aria-live="polite" hidden><div class="section-heading"><div><h2 id="word-heading">The word</h2><p id="word-message" class="muted"></p></div></div><div id="word-board" class="word-board"></div><p id="word-missing" class="word-missing" hidden></p></section>
+    <section id="word-results" class="results-section" aria-live="polite" hidden><div class="section-heading"><div><h2 id="word-heading">The word</h2><p id="word-message" class="muted"></p></div><div class="result-actions"><label>Letter color <input id="letter-color" type="color" value="#244d44"></label><button id="original-letter-color" class="secondary-button" type="button" hidden>Original colors</button></div></div><svg width="0" height="0" aria-hidden="true"><defs><filter id="word-color-filter" color-interpolation-filters="sRGB"><feColorMatrix id="word-color-matrix" type="matrix"/></filter></defs></svg><div id="word-board" class="word-board"></div><p id="word-missing" class="word-missing" hidden></p></section>
 
     <dialog id="letter-picker" class="letter-picker" aria-labelledby="letter-picker-title" aria-describedby="letter-picker-hint"><div class="picker-heading"><div><h2 id="letter-picker-title">Choose a letter</h2><p id="letter-picker-hint">Select a shape for this position.</p></div><button id="close-letter-picker" class="picker-close" type="button" aria-label="Close letter choices">×</button></div><div id="letter-picker-options" class="letter-picker-options"></div></dialog>
   </main>

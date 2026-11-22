@@ -10,7 +10,7 @@
   }
   function activeWorker() {
     if(worker) return worker;
-    worker=new Worker(new URL('./chemistry-worker.js',location.href));
+    worker=new Worker(new URL('./chemistry-worker.js?v=ring-layout',location.href));
     worker.addEventListener('message',event=>{
       const message=event.data;if(!message||!Number.isSafeInteger(message.id))return;
       const task=pending.get(message.id);if(!task)return;

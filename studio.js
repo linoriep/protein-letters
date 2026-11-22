@@ -11,6 +11,7 @@ const EXAMPLES = {
 };
 const state = {graph:{atoms:[],bonds:[]}, tool:'draw', element:'C', order:1, charge:0, selected:-1, drag:null, history:[], busy:false, authority:{type:'graph'}, canonical:'', formula:'', checked:false, smilesDirty:false, hasStereo:false};
 let storageWarningShown = false;
+let nameColor = null;
 function node(tag, text, className) {
   const n = document.createElement(tag);
   if (text !== undefined) n.textContent = String(text);
@@ -95,7 +96,7 @@ function pushUndo(before = snapshot()) {
 }
 function save() {
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({version:1,...snapshot(),name:$('molecule-name').value,includeName:$('include-name').checked}));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({version:1,...snapshot(),name:$('molecule-name').value,includeName:$('include-name').checked,nameColor}));
   } catch (_) {
     if (!storageWarningShown) { storageWarningShown = true; notice('This browser cannot save the sketch between visits. Keep this page open and download the finished artwork.'); }
   }
@@ -361,7 +362,7 @@ $('art-form').addEventListener('submit',async event=>{
     // unchanged molblock, preserving annotations absent from the simple graph.
     if(state.authority.type==='graph'&&!state.checked)applyPrepared(await api('/api/art/prepare',{graph:state.graph}),'graph');
     const name=$('molecule-name').value.trim();
-    const result=await api('/api/art/render',{...renderSource(),name,include_name:$('include-name').checked&&Boolean(name),allow_assembled:true});
+    const result=await api('/api/art/render',{...renderSource(),name,include_name:$('include-name').checked&&Boolean(name),allow_assembled:true,name_color:nameColor});
     if(result.status==='missing_glyphs'){
       const missing=Array.isArray(result.missing_letters)?[...new Set(result.missing_letters.map(String))]:[];
       invalidateArt('No artwork created. Some letters in the name are unavailable.');
@@ -385,6 +386,15 @@ $('art-form').addEventListener('submit',async event=>{
 });
 $('art-image').addEventListener('error',()=>{if(!$('art-image').hasAttribute('src'))return;$('art-image').hidden=true;$('art-empty').hidden=false;notice('The artwork preview could not be loaded. Use a download link if available, or try creating it again.',true);});
 for(const id of ['molecule-name','include-name'])$(id).addEventListener(id==='molecule-name'?'input':'change',()=>{invalidateArt('The artwork options changed. Create it again to apply them.');save();});
+function setNameColor(color){
+  nameColor=color;
+  $('original-letter-color').hidden=!color;
+  if(!color)$('letter-color').value='#244d44';
+  invalidateArt('Create the artwork again to apply the letter color.');
+  save();
+}
+$('letter-color').addEventListener('input',event=>setNameColor(event.target.value));
+$('original-letter-color').addEventListener('click',()=>setNameColor(null));
 async function loadPalette(){
   try{
     const result=await api('/api/art/palette');if(!Array.isArray(result.letters))throw new Error('The letter set is unavailable.');
@@ -404,6 +414,11 @@ function restore(){
     state.authority=saved.authority?.type==='molblock'&&typeof saved.authority.value==='string'&&saved.authority.value.length<1024*1024?{type:'molblock',value:saved.authority.value}:{type:'graph'};
     state.canonical=typeof saved.canonical==='string'?saved.canonical:'';state.formula=typeof saved.formula==='string'?saved.formula:'';state.checked=Boolean(saved.checked);state.smilesDirty=Boolean(saved.smilesDirty);state.hasStereo=Boolean(saved.hasStereo)||(saved.hasStereo===undefined&&/[@/\\]/.test(state.canonical));
     $('smiles-input').value=typeof saved.smiles==='string'?saved.smiles:'';$('molecule-name').value=typeof saved.name==='string'?saved.name.slice(0,80):'';$('include-name').checked=saved.includeName!==false;
+    if(typeof saved.nameColor==='string' && /^#[0-9a-f]{6}$/i.test(saved.nameColor)) {
+      nameColor=saved.nameColor;
+      $('letter-color').value=nameColor;
+      $('original-letter-color').hidden=false;
+    }
     if(state.graph.atoms.length)notice(state.hasStereo?'The last molecule has been restored with its original stereochemistry. Editing is unavailable; clear it or load another molecule to continue.':'The last sketch has been restored.');
   }catch(_){notice('The saved sketch could not be restored. Start a new sketch or load a molecule.');}
 }

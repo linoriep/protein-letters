@@ -345,8 +345,23 @@ function restoreWordChoices() {
 function optionCaption(option) {
   return option.kind === 'assembled' ? 'Assembled · protein pieces' : [option.pdb_id || 'Protein', option.unit || 'whole'].join(' · ');
 }
+function setWordColor(color) {
+  $('original-letter-color').hidden = !color;
+  if (color) {
+    const channels = color.slice(1).match(/../g).map(hex => parseInt(hex, 16) / 255);
+    const matrix = channels.flatMap(channel => [0.299, 0.587, 0.114]
+      .map(weight => weight * (1 - channel)).concat(0, channel));
+    $('word-color-matrix').setAttribute('values', [...matrix, 0, 0, 0, 1, 0].join(' '));
+  } else $('letter-color').value = '#244d44';
+  for (const img of document.querySelectorAll('#word-board img, #letter-picker-options img')) {
+    img.style.filter = color ? 'url(#word-color-filter)' : '';
+  }
+}
+$('letter-color').addEventListener('input', event => setWordColor(event.target.value));
+$('original-letter-color').addEventListener('click', () => setWordColor(null));
 function optionImage(option, letter) {
   const img = node('img'); img.src = option.image_url; img.alt = `${letter} · ${optionCaption(option)}`; img.loading = 'lazy';
+  if (!$('original-letter-color').hidden) img.style.filter = 'url(#word-color-filter)';
   img.addEventListener('error', () => img.replaceWith(node('span', 'Preview unavailable', 'word-image-error')), {once: true});
   return img;
 }

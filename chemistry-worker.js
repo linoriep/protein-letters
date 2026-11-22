@@ -76,7 +76,7 @@ const window = self;
       const representation=data.extensions?.find(extension=>extension.name==='rdkitRepresentation')||{};
       const rings=Array.isArray(representation.atomRings)?representation.atomRings:[];
       const stereo=data.atoms.some(a=>a.stereo&&a.stereo!=='unspecified')||data.bonds.some(b=>b.stereo&&b.stereo!=='unspecified')||(representation.cipCodes||[]).length>0||(source==='smiles'&&/[@/\\]/.test(input))||(source==='molblock'&&input.split(/\r?\n/)[3]?.slice(12,15).trim()==='1');
-      return {schema_version:1,status:'prepared',canonical_smiles:mol.get_smiles(),molblock:mol.get_molblock(),formula:formula(atoms),graph:{atoms,bonds,rings},has_stereochemistry:Boolean(stereo),graph_preserves_stereo:false,stereo_policy:'Original molblock retains stereochemistry. Editing and protein artwork reject explicit stereochemistry.',warnings:[],missing_letters:[],rdkit_version:RDKit.version()};
+      return {schema_version:1,status:'prepared',canonical_smiles:mol.get_smiles(),molblock:mol.get_molblock(),formula:formula(atoms),graph:{atoms,bonds,rings,aromaticBonds:representation.aromaticBonds || []},has_stereochemistry:Boolean(stereo),graph_preserves_stereo:false,stereo_policy:'Original molblock retains stereochemistry. Editing and protein artwork reject explicit stereochemistry.',warnings:[],missing_letters:[],rdkit_version:RDKit.version()};
     } catch(error) { if(error instanceof Error) throw error;fail('The molecule has invalid chemistry or unsupported annotations.'); }
     finally { if(mol) mol.delete(); }
   }
