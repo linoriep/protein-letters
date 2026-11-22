@@ -4,7 +4,7 @@ Find letter-shaped views in protein structures, write words with A–Z protein s
 
 The public site is static and all artwork and new scanning run in your browser. Saved views cover 1,500 public PDB entries. To scan a new structure, enter a PDB ID or choose a PDB/mmCIF file. ID searches may download the public structure from RCSB. Files you select, SMILES, and molecular sketches stay in your browser. Browser scanning samples 192 coarse and 32 refined rotations per protein unit using the synthetic letter CNN. Its results can differ from the saved library, which used a denser rotation search. Visual resemblance scores are not probabilities.
 
-In Molecule Studio, draw atoms and bonds or load a SMILES string, then create PNG or SVG artwork. The editor checks chemistry with RDKit.js. Protein artwork supports single-letter element symbols. The editor can still load SMILES with two-letter symbols such as Br or Cl. Artwork with explicit stereochemistry or radical electrons is unavailable. Assembled letters are labeled. The default L is a view of the whole 12ES structure.
+In Molecule Studio, draw atoms and bonds or load a SMILES string, then create PNG or SVG artwork. The editor checks chemistry with RDKit.js. Protein artwork uses one-letter element glyphs and renders Br and Cl as BR and CI. Artwork with explicit stereochemistry or radical electrons is unavailable. Assembled letters are labeled. The default L is a view of the whole 12ES structure.
 
 Serve this directory over HTTP or HTTPS. The public site is hosted on GitHub Pages from the root of the main branch.
 

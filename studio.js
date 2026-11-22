@@ -23,7 +23,7 @@ function svgNode(tag, attrs = {}) {
   return n;
 }
 function unsupportedArtworkNotice() {
-  const symbols=[...new Set(state.graph.atoms.map(atom=>atom.element).filter(symbol=>symbol.length>1))].sort();
+  const symbols=[...new Set(state.graph.atoms.map(atom=>atom.element).filter(symbol=>symbol.length>1 && symbol!=='Br' && symbol!=='Cl'))].sort();
   return symbols.length ? 'Protein artwork is unavailable for '+symbols.join(', ')+'.' : '';
 }
 function notice(text, error = false) {

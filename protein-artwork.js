@@ -6,6 +6,7 @@
   'use strict';
   const base = new URL('./', document.baseURI), cache = new Map();
   const color = '#244d44', font = 'Arial, sans-serif';
+  const elementArtLetters = {Br:'BR', Cl:'CI'};
   const plus = (a,b) => [a[0]+b[0],a[1]+b[1]];
   const mul = (a,n) => [a[0]*n,a[1]*n];
   const sub = (a,b) => plus(a,mul(b,-1));
@@ -126,7 +127,7 @@
       }
       const name=body.include_name?String(body.name||'').trim().toUpperCase():'';
       if(name.length>120||/[^A-Z -]/.test(name))fail('unsupported_name_characters','Protein names may contain A–Z letters, spaces, and hyphens.');
-      const unsupported=[...new Set(atoms.map(a=>a.element).filter(symbol=>symbol.length>1))].sort();
+      const unsupported=[...new Set(atoms.map(a=>a.element).filter(symbol=>symbol.length>1 && !elementArtLetters[symbol]))].sort();
       if(unsupported.length)fail('unsupported_artwork_elements','Protein artwork is unavailable for '+unsupported.join(', ')+'.');
       const catalog=await json(), glyphs=new Map(), missing=new Set();
       async function glyph(letter,role) {
@@ -135,7 +136,11 @@
         if(!glyphs.has(letter))glyphs.set(letter,{asset:await asset(option.image_url),kind:option.kind});
       }
       const explicit=(a,i)=>a.element!=='C'||a.charge||a.isotope||!adj[i].length;
-      for(let i=0;i<atoms.length;i++)if(explicit(atoms[i],i)) {const a=atoms[i];await glyph(a.element,'atom');if(a.total_h)await glyph('H','atom');}
+      for(let i=0;i<atoms.length;i++)if(explicit(atoms[i],i)) {
+        const atom=atoms[i];
+        for(const letter of elementArtLetters[atom.element] || atom.element) await glyph(letter,'atom');
+        if(atom.total_h)await glyph('H','atom');
+      }
       for(const letter of new Set(name.replace(/[ -]/g,'')))await glyph(letter,'name');
       if(missing.size)return {status:'missing_glyphs',missing_letters:[...missing].sort(),warnings:['No artwork was generated. Enable assembled letters for missing name glyphs.']};
       const rod=await asset('assets/rod.png'); if(rod.width>rod.height)fail('invalid_rod','The protein bond rod must be vertical.');
@@ -178,9 +183,17 @@
       }
       for(let i=0;i<atoms.length;i++) {
         const a=atoms[i];if(!explicit(a,i))continue;const [x,y]=coords[i];
-        const glyphAsset=glyphs.get(a.element);
-        canvas.glyph(a.element,glyphAsset,x,y,h,`atom ${i} ${a.element}`);
-        let labelRight=x+h*glyphAsset.asset.width/glyphAsset.asset.height/2;
+        const letters=elementArtLetters[a.element] || a.element;
+        const height=letters.length===1?h:h*.76, gap=h*.1;
+        const items=Array.from(letters,letter=>glyphs.get(letter));
+        const widths=items.map(item=>height*item.asset.width/item.asset.height);
+        const labelWidth=widths.reduce((sum,width)=>sum+width,0)+gap*(letters.length-1);
+        let cursor=x-labelWidth/2, labelRight=x+labelWidth/2;
+        items.forEach((item,j)=>{
+          const letter=letters[j], role=`atom ${i} ${a.element}`;
+          canvas.glyph(letter,item,cursor+widths[j]/2,y,height,letters.length===1?role:role+' glyph '+letter);
+          cursor+=widths[j]+gap;
+        });
         if(a.total_h) {
           const neighbors=adj[i].map(([j])=>sub(coords[j],coords[i])).map(v=>mul(v,1/norm(v)));
           const directions=[[1,0],[-1,0],[0,-1],[0,1]];
